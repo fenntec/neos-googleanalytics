@@ -48,6 +48,7 @@ Neos:
           # anonymize_ip: true
       tagManager:
         id: false
+        firstPartyMode: false
 
     # Site specific settings
     sites: []
