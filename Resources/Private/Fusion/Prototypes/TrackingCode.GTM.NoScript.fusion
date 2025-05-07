@@ -1,7 +1,7 @@
 prototype(Neos.GoogleAnalytics:TrackingCode.GTM.NoScript) < prototype(Neos.GoogleAnalytics:TrackingCode.Base) {
     containerId = ${this.configuration.tagManager.id}
     @if.hasContainerId = ${!String.isBlank(this.containerId)}
-    domain = ${this.configuration.tagManager.firstPartyMode ?: 'www.googletagmanager.com'}
+    domain = ${this.configuration.tagManager.firstPartyMode ? this.configuration.tagManager.firstPartyMode : 'www.googletagmanager.com'}
 
     renderer = ${'<!-- Google Tag Manager (noscript) --><noscript><iframe src="https://' + props.domain + '/ns.html?id=' + props.containerId + '" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><!-- End Google Tag Manager (noscript) -->'}
 }
